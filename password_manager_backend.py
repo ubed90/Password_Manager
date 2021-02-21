@@ -4,9 +4,10 @@ import re
 password = ''
 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 
+#FUNCTION TO ASK PASSWORD FOR ROOT_USER (PRESS ENTER IF NO PASS)
 def ask_for_master_password():
     global password
-    password = input('Enter the MASTER PASSWORD to gain Access to the VAULT :: ') or None
+    password = input('Enter the MASTER PASSWORD to gain Access to the VAULT (IF NO PASS PRESS ENTER) :: ') or None
     try:
         conn = mc.connect(
         host = 'localhost',
@@ -18,7 +19,7 @@ def ask_for_master_password():
     conn.close()
     return True
 
-
+# FUNCTON TO CREATE DATABASE
 def create_db():
     conn = mc.connect(
         host = 'localhost',
@@ -30,6 +31,8 @@ def create_db():
     conn.commit()
     conn.close()
 
+
+# CLASS TO MAKE THE MANAGER WORK
 class password_manager_backend:
     # password = ''
     global password
@@ -167,19 +170,3 @@ class password_manager_backend:
     def iexit(self):
         self.conn.close()
         exit()
-
-# if ask_for_master_password():
-    # create_db()
-    # pwd_man = password_manager_backend()
-    # # pwd_man.create_tables() 
-    # pwd_man.insert_into_accounts(email='zaid@gmail.com' , password='spam8097')
-    # pwd_man.check_email_registry(email='zaida@gmail.com')
-    # pwd_man.insert_into_apps(email='zaid@gmail.com' , password='spam3200' , app_name='MYNTRA')
-    # pwd_man.update_account_password(email='ubed@gmail.com' , password='kela@123')
-    # pwd_man.get_specific_accounts_apps_data(id=5)
-    # pwd_man.get_all_accounts()
-    # pwd_man.update_app_credentials(id=5 , email='ubed@gmail.com' , password='spam8097' , username='shaikhobaid123' , phone='+916901526372' , app_name='LINKEDIN')
-    # pwd_man.get_all_apps()
-    # pwd_man.del_account_or_app(id=6)
-
-#     pwd_man.iexit()

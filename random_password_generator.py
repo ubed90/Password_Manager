@@ -11,6 +11,7 @@ def random_password_generator_menu():
     print('-'*60)
     return input(':: ')
 
+# FUNCTION TO GENERATE RANDOM PASSWORD
 def generate_random_password():
     choice = random_password_generator_menu()
     if choice == '1':

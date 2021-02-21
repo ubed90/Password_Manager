@@ -1,5 +1,4 @@
 import os
-from typing import get_args
 from random_password_generator import generate_random_password
 from password_manager_backend import ask_for_master_password , create_db , password_manager_backend
 import pyperclip
@@ -7,6 +6,7 @@ from prettytable import PrettyTable
 
 flag = True
 
+#FUNCTION TO CLEAR SCREEN
 def clear():
     return os.system('cls')
 
@@ -31,6 +31,7 @@ else:
         flag = False
 
 
+# MENU DRIVEN FUNCTION
 while flag:
     choice = menu()
     while choice not in ['1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10' , '11' , '12']:
